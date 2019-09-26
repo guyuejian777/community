@@ -6,4 +6,12 @@ git:
     id: 917a7be79af11f374b30
     secret: 921934f69774f7e4c1cd758ba3f4d0fb3523cb34
     redirectUri: http://localhost:8081/callback
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/community?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: admin
+  redis:
+    host: 192.168.2.2
 

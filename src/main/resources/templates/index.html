@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <script src="js/bootstrap.min.js" type="application/javascript"></script>
+
+</head>
+<body>
+<div id="indexApp">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -27,23 +31,37 @@
                     <button type="submit" class="btn btn-default">搜索</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="https://github.com/login/oauth/authorize?client_id=917a7be79af11f374b30&redirect_uri=http://localhost:8081/callback&scope=user&state=1">登录</a></li>
-                    <li class="dropdown">
+                    <li class="dropdown" th:if="${session.user != null}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">我<span class="caret"></span></a>
+                           aria-expanded="false" th:text="${session.user.getName()}">我<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">消息中心</a></li>
                             <li><a href="#">个人资料</a></li>
                             <li><a href="#">退出登录</a></li>
                         </ul>
                     </li>
+                    <li th:if="!${session.user!=null}">
+                        <a href="https://github.com/login/oauth/authorize?client_id=917a7be79af11f374b30&redirect_uri=http://localhost:8081/callback&state=1">登录</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
+</div>
 
-</head>
-<body>
 
 </body>
+<script src="js/vue.min.js"></script>
+<script src="js/axios.min.js"></script>
+<script src="https://cdn.bootcss.com/qs/6.5.1/qs.min.js"></script>
+
+<script>
+    var indexVm = new Vue({
+        el: "#indexApp",
+        data: {
+            message: "hello"
+        },
+        methods: {}
+    })
+</script>
 </html>
