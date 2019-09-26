@@ -1,0 +1,9 @@
+server:
+  port: 8081
+
+git:
+  client:
+    id: 917a7be79af11f374b30
+    secret: 921934f69774f7e4c1cd758ba3f4d0fb3523cb34
+    redirectUri: http://localhost:8081/callback
+
